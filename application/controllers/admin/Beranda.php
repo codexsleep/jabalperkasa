@@ -18,6 +18,9 @@ class Beranda extends CI_Controller {
 	{
 		$data['pageTitle'] = "Beranda";
 		$data['userdata'] = $this->auth_model->datauser($this->session->userdata('email'))->row_array();
+		$data['karyawan'] = $this->beranda_model->jmlKaryawan();
+		$data['absensi'] = $this->beranda_model->jmlAbsensi();
+		$data['departemen'] = $this->beranda_model->jmlDepartemen();
 		$this->load->view('admin/layout/header',$data);
 		$this->load->view('admin/beranda/vw_beranda',$data);
 		$this->load->view('admin/layout/footer',$data);
