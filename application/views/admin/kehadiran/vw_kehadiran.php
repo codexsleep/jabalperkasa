@@ -153,7 +153,7 @@
                         <td><?php if($a['attendance_late_time']=='0:0:0'){ echo '00:00:00';}else{ echo $a['attendance_late_time']; }?></td>
                         <td><?= $a['attendance_overtime'];?></td>
                         <td><?php if($a['attendance_status']=='1'){ echo 'On Time';}else{ echo 'Late';}?> </td>
-                    </tr> 
+                    </tr>  
                     <?php
                     }
                 }
