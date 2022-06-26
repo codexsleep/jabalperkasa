@@ -135,8 +135,8 @@
                         <td><?= $a['attendance_id'];?></td>
                         <td><?= $karyawan['user_name'];?></td>
                         <td><?= $a['attendance_in'];?> WIB</td>
-                        <td><?php if($a['attendance_out']=='-'){ echo "-";}else{ echo $a['attendance_out'].' WIB';}?></td>
-                        <td><?php if($a['attendance_late']=='0:0:0'){ echo '00:00:00';}else{ echo $a['attendance_late']; }?></td>
+                        <td><?php echo $a['attendance_out'].' WIB';?></td>
+                        <td><?php echo $a['attendance_late_time']; ?></td>
                         <td><?= $a['attendance_overtime'];?></td>
                         <td><?php if($a['attendance_status']=='1'){ echo 'On Time';}else{ echo 'Late';}?> </td>
                     </tr>
@@ -149,11 +149,11 @@
                         <td><?= $a['attendance_id'];?></td>
                         <td><?= $karyawan['user_name'];?></td>
                         <td><?= $a['attendance_in'];?> WIB</td>
-                        <td><?php if($a['attendance_out']=='-'){ echo "-";}else{ echo $a['attendance_out'].' WIB';}?></td>
-                        <td><?php if($a['attendance_late_time']=='0:0:0'){ echo '00:00:00';}else{ echo $a['attendance_late_time']; }?></td>
+                        <td><?php echo $a['attendance_out'].' WIB';?></td>
+                        <td><?php echo $a['attendance_late_time']; ?></td>
                         <td><?= $a['attendance_overtime'];?></td>
                         <td><?php if($a['attendance_status']=='1'){ echo 'On Time';}else{ echo 'Late';}?> </td>
-                    </tr>  
+                    </tr> 
                     <?php
                     }
                 }
