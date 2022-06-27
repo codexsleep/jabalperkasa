@@ -51,10 +51,8 @@ class Absensi extends CI_Controller
 						$minute = floor(($diff - ($hour * (60 * 60))) / 60);
 						$second = $diff % 60;
 						if ($diff <= 0) {
-							$StatusAbsensi = 2;
 							$lateTime = '00:00:00';
 						} else {
-							$StatusAbsensi = 1;
 							if ($hour < 10) {
 								$jam = '0' . $hour;
 							} else {
@@ -73,6 +71,12 @@ class Absensi extends CI_Controller
 							$lateTime = $jam .  ':' . $menit . ':' . $detik;
 						} //programcek telat end
 
+						if($lateTime=='00:00:00'){ //mengecek apakah karyawan telat atau tidak
+							$StatusAbsensi = 1;
+						}else{
+							$StatusAbsensi = 2;
+						}
+						
 						$data = [
 							'user_id' => $userData['user_id'],
 							'attendance_in' => $dateTime,
@@ -125,7 +129,6 @@ class Absensi extends CI_Controller
 				$outTime = date('Y-m-d ') . $shiftData['shift_out'] . ':00'; //shift keluar karyawan
 				if ($shiftData) { // mengecek apakah karyawan memiliki shift
 					if ($absensi != null and $absensi['attendance_out']=='-') { //mengecek apakah karyawan sudah pernah melakukan absensi keluar pada hari ini
-
 						//program cek telat start
 						$awal  = strtotime($outTime); //jam masuk shift karyawan
 						$akhir = strtotime($dateTime); //waktu masuk hari karyawan hari ini

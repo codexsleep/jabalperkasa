@@ -4,8 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Administrasi extends CI_Controller
 {
 
-	function __construct()
-	{
+	function __construct(){
 		parent::__construct();
 		$this->load->model('Auth_model', 'auth_model');
 		$this->load->model('kehadiran_model', 'kehadiran_model');
